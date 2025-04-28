@@ -25,11 +25,11 @@
 </head>
 <body>
   <h1>じゃんけんゲーム</h1>
-  <p>グー（G）、チョキ（C）、パー（P）を選んでください。</p>
+  <p>G(グー)、C(チョキ)、P(パー)を選んでください</p>
 
-  <button class="game-btn" onclick="play('G')">グー</button>
-  <button class="game-btn" onclick="play('C')">チョキ</button>
-  <button class="game-btn" onclick="play('P')">パー</button>
+  <button class="game-btn" onclick="play('G')">G</button>
+  <button class="game-btn" onclick="play('C')">C</button>
+  <button class="game-btn" onclick="play('P')">P</button>
 
   <div class="result" id="result"></div>
 
@@ -40,15 +40,15 @@
 
       let resultText = '';
       if (playerChoice === comChoice) {
-        resultText = `あいこ！（あなた: ${playerChoice}、COM: ${comChoice})`;
+        resultText = `あいこ　だよ　<br>あなた: ${playerChoice} <br>こはる: ${comChoice}`;
       } else if (
         (playerChoice === 'G' && comChoice === 'C') ||
         (playerChoice === 'C' && comChoice === 'P') ||
         (playerChoice === 'P' && comChoice === 'G')
       ) {
-        resultText = `あなたの勝ち！（あなた: ${playerChoice}、COM: ${comChoice})`;
+        resultText = `あなたの勝ち！　<br>あなた: ${playerChoice} <br>こはる: ${comChoice}`;
       } else {
-        resultText = `あなたの負け！（あなた: ${playerChoice}、COM: ${comChoice})`;
+        resultText = `あなたの負け！　<br>あなた: ${playerChoice} <br>こはる: ${comChoice}`;
       }
 
       document.getElementById('result').innerText = resultText;
