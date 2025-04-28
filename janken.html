@@ -44,9 +44,32 @@
       color: #ff7043; /* 結果表示の色 */
     }
 
-    .result span {
-      display: block;
-      margin: 10px 0;
+    .result-table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      border-radius: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .result-table td {
+      padding: 15px;
+      text-align: center;
+      font-size: 1.2em;
+      border: 1px solid #ff7043; /* テーブルの枠線 */
+    }
+
+    /* 各結果の背景色 */
+    .result-tie {
+      background-color: #d0f8d0; /* 薄緑色 */
+    }
+
+    .result-win {
+      background-color: #ffccbc; /* 薄い赤色 */
+    }
+
+    .result-lose {
+      background-color: #cce7ff; /* 薄い青色 */
     }
   </style>
 </head>
@@ -66,16 +89,57 @@
       const comChoice = choices[Math.floor(Math.random() * 3)];
 
       let resultText = '';
+      let resultClass = ''; // 結果クラス（背景色を変更するため）
+
       if (playerChoice === comChoice) {
-        resultText = `あいこだよ<br><span>あなた: ${playerChoice}</span><span>こはる: ${comChoice}</span>`;
+        resultText = `
+          <table class="result-table result-tie">
+            <tr>
+              <td>あいこだよ</td>
+            </tr>
+            <tr>
+              <td>あなた: ${playerChoice}</td>
+            </tr>
+            <tr>
+              <td>こはる: ${comChoice}</td>
+            </tr>
+          </table>
+        `;
+        resultClass = 'result-tie'; // あいこの場合
       } else if (
         (playerChoice === 'G' && comChoice === 'C') ||
         (playerChoice === 'C' && comChoice === 'P') ||
         (playerChoice === 'P' && comChoice === 'G')
       ) {
-        resultText = `あなたの勝ち！<br><span>あなた: ${playerChoice}</span><span>こはる: ${comChoice}</span>`;
+        resultText = `
+          <table class="result-table result-win">
+            <tr>
+              <td>あなたの勝ち！</td>
+            </tr>
+            <tr>
+              <td>あなた: ${playerChoice}</td>
+            </tr>
+            <tr>
+              <td>こはる: ${comChoice}</td>
+            </tr>
+          </table>
+        `;
+        resultClass = 'result-win'; // 勝ちの場合
       } else {
-        resultText = `あなたの負け！<br><span>あなた: ${playerChoice}</span><span>こはる: ${comChoice}</span>`;
+        resultText = `
+          <table class="result-table result-lose">
+            <tr>
+              <td>あなたの負け！</td>
+            </tr>
+            <tr>
+              <td>あなた: ${playerChoice}</td>
+            </tr>
+            <tr>
+              <td>こはる: ${comChoice}</td>
+            </tr>
+          </table>
+        `;
+        resultClass = 'result-lose'; // 負けの場合
       }
 
       document.getElementById('result').innerHTML = resultText;
