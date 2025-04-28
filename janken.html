@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>じゃんけんゲーム</title>
+  <style>
+    body {
+      background-color: #f0f8ff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .game-btn {
+      padding: 10px 20px;
+      margin: 20px;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+
+    .result {
+      font-size: 1.5em;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>じゃんけんゲーム</h1>
+  <p>グー（G）、チョキ（C）、パー（P）を選んでください。</p>
+
+  <button class="game-btn" onclick="play('G')">グー</button>
+  <button class="game-btn" onclick="play('C')">チョキ</button>
+  <button class="game-btn" onclick="play('P')">パー</button>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    function play(playerChoice) {
+      const choices = ['G', 'C', 'P'];
+      const comChoice = choices[Math.floor(Math.random() * 3)];
+
+      let resultText = '';
+      if (playerChoice === comChoice) {
+        resultText = `あいこ！（あなた: ${playerChoice}、COM: ${comChoice})`;
+      } else if (
+        (playerChoice === 'G' && comChoice === 'C') ||
+        (playerChoice === 'C' && comChoice === 'P') ||
+        (playerChoice === 'P' && comChoice === 'G')
+      ) {
+        resultText = `あなたの勝ち！（あなた: ${playerChoice}、COM: ${comChoice})`;
+      } else {
+        resultText = `あなたの負け！（あなた: ${playerChoice}、COM: ${comChoice})`;
+      }
+
+      document.getElementById('result').innerText = resultText;
+    }
+  </script>
+</body>
+</html>
