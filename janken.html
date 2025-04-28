@@ -5,21 +5,48 @@
   <title>じゃんけんゲーム</title>
   <style>
     body {
-      background-color: #f0f8ff;
-      font-family: Arial, sans-serif;
+      background-color: #fff8e1; /* 薄い黄色 */
+      font-family: 'Comic Sans MS', cursive, sans-serif; /* かわいいフォント */
       text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      color: #ff7043; /* 見出しの色 */
+      margin-top: 50px;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #ff7043; /* テキストの色 */
     }
 
     .game-btn {
-      padding: 10px 20px;
+      padding: 15px 30px;
       margin: 20px;
-      font-size: 1.2em;
+      font-size: 1.5em;
       cursor: pointer;
+      background-color: #ff7043;
+      border: none;
+      color: white;
+      border-radius: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .game-btn:hover {
+      background-color: #ff5722;
     }
 
     .result {
       font-size: 1.5em;
-      margin-top: 20px;
+      margin-top: 30px;
+      color: #ff7043; /* 結果表示の色 */
+    }
+
+    .result span {
+      display: block;
+      margin: 10px 0;
     }
   </style>
 </head>
@@ -40,19 +67,18 @@
 
       let resultText = '';
       if (playerChoice === comChoice) {
-        resultText = `あいこ　だよ　<br>あなた: ${playerChoice} <br>こはる: ${comChoice}`;
+        resultText = `あいこだよ<br><span>あなた: ${playerChoice}</span><span>こはる: ${comChoice}</span>`;
       } else if (
         (playerChoice === 'G' && comChoice === 'C') ||
         (playerChoice === 'C' && comChoice === 'P') ||
         (playerChoice === 'P' && comChoice === 'G')
       ) {
-        resultText = `あなたの勝ち！　<br>あなた: ${playerChoice} <br>こはる: ${comChoice}`;
+        resultText = `あなたの勝ち！<br><span>あなた: ${playerChoice}</span><span>こはる: ${comChoice}</span>`;
       } else {
-        resultText = `あなたの負け！　<br>あなた: ${playerChoice} <br>こはる: ${comChoice}`;
+        resultText = `あなたの負け！<br><span>あなた: ${playerChoice}</span><span>こはる: ${comChoice}</span>`;
       }
 
       document.getElementById('result').innerHTML = resultText;
-
     }
   </script>
 </body>
