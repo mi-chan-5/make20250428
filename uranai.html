@@ -54,6 +54,7 @@
         <option value="いて座">いて座</option>
         <option value="やぎ座">やぎ座</option>
         <option value="みずがめ座">みずがめ座</option>
+        <option value="うお座">うお座</option>
     </select>
     
     <button onclick="showResult()">占い結果へGO！</button>
@@ -94,10 +95,13 @@
                     resultText = "あなたは飽き性です！";
                     break;
                 case "やぎ座":
-                    resultText = "あなたは自分を真面目だと評価してますが、本当の性格は不真面目です！";
+                    resultText = "あなたは自分を真面目だと評価してますが、根は不真面目です！";
                     break;
                 case "みずがめ座":
                     resultText = "あなたはかっこつけたがりです！";
+                    break;
+                case "うお座":
+                    resultText = "あなたは自分が思っている以上に寂しがりです！";
                     break;
                 default:
                     resultText = "星座を選んでください！";
