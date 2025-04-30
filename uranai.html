@@ -1,116 +1,127 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>星座占い</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
-            text-align: center;
-            padding: 50px;
-        }
-        h2 {
-            color: #333;
-        }
-        select {
-            padding: 10px;
-            font-size: 16px;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #ff7043;
-            color: white;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        button:hover {
-            background-color: #ff5722;
-        }
-        #result {
-            margin-top: 20px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>星座占い</title>
+  <style>
+    body {
+      background-color: #fff8e1;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      padding: 50px;
+      color: #444;
+    }
+
+    h2 {
+      color: #ff7043;
+    }
+
+    select {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ffcc80;
+      border-radius: 5px;
+      background-color: #fffde7;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #ff7043;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    button:hover {
+      background-color: #ff5722;
+    }
+
+    #result {
+      margin-top: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #d84315;
+    }
+  </style>
 </head>
 <body>
 
-    <h2>星座占い</h2>
-    <p>あなたの星座を選んでください：</p>
-    
-    <select id="zodiac">
-        <option value="おうし座">おうし座</option>
-        <option value="牡羊座">牡羊座</option>
-        <option value="ふたご座">ふたご座</option>
-        <option value="かに座">かに座</option>
-        <option value="しし座">しし座</option>
-        <option value="おとめ座">おとめ座</option>
-        <option value="てんびん座">てんびん座</option>
-        <option value="さそり座">さそり座</option>
-        <option value="いて座">いて座</option>
-        <option value="やぎ座">やぎ座</option>
-        <option value="みずがめ座">みずがめ座</option>
-        <option value="うお座">うお座</option>
-    </select>
-    
-    <button onclick="showResult()">占い結果へGO！</button>
-    
-    <div id="result"></div>
+  <h2>🌟 星座占い 🌟</h2>
+  <p>あなたの星座を選んでください：</p>
 
-    <script>
-        function showResult() {
-            var zodiac = document.getElementById("zodiac").value;
-            var resultText = "";
-            
-            switch(zodiac) {
-                case "牡羊座":
-                    resultText = "あなたはせっかちな性格です！";
-                    break;
-                case "おうし座":
-                    resultText = "あなたはマイペースな性格です！";
-                    break;
-                case "ふたご座":
-                    resultText = "あなたはお話上手です！";
-                    break;
-                case "かに座":
-                    resultText = "あなたはお世話好きです！";
-                    break;
-                case "しし座":
-                    resultText = "あなたはミーハーな性格です！";
-                    break;
-                case "おとめ座":
-                    resultText = "あなたは潔癖症です！";
-                    break;
-                case "てんびん座":
-                    resultText = "あなたは隠れこだわりが強い人です！";
-                    break;
-                case "さそり座":
-                    resultText = "あなたはしつこい性格です！";
-                    break;
-                case "いて座":
-                    resultText = "あなたは飽き性です！";
-                    break;
-                case "やぎ座":
-                    resultText = "あなたは自分を真面目だと評価してますが、根は不真面目です！";
-                    break;
-                case "みずがめ座":
-                    resultText = "あなたはかっこつけたがりです！";
-                    break;
-                case "うお座":
-                    resultText = "あなたは自分が思っている以上に寂しがりです！";
-                    break;
-                default:
-                    resultText = "星座を選んでください！";
-                    break;
-            }
+  <select id="zodiac">
+    <option value="おうし座">おうし座</option>
+    <option value="牡羊座">牡羊座</option>
+    <option value="ふたご座">ふたご座</option>
+    <option value="かに座">かに座</option>
+    <option value="しし座">しし座</option>
+    <option value="おとめ座">おとめ座</option>
+    <option value="てんびん座">てんびん座</option>
+    <option value="さそり座">さそり座</option>
+    <option value="いて座">いて座</option>
+    <option value="やぎ座">やぎ座</option>
+    <option value="みずがめ座">みずがめ座</option>
+    <option value="うお座">うお座</option>
+  </select>
 
-            document.getElementById("result").innerText = resultText;
-        }
-    </script>
+  <button onclick="showResult()">占い結果へGO！</button>
+
+  <div id="result"></div>
+
+  <script>
+    function showResult() {
+      var zodiac = document.getElementById("zodiac").value;
+      var resultText = "";
+
+      switch(zodiac) {
+        case "牡羊座":
+          resultText = "あなたはせっかちな性格です！";
+          break;
+        case "おうし座":
+          resultText = "あなたはマイペースな性格です！";
+          break;
+        case "ふたご座":
+          resultText = "あなたはお話上手です！";
+          break;
+        case "かに座":
+          resultText = "あなたはお世話好きです！";
+          break;
+        case "しし座":
+          resultText = "あなたはミーハーな性格です！";
+          break;
+        case "おとめ座":
+          resultText = "あなたは潔癖症です！";
+          break;
+        case "てんびん座":
+          resultText = "あなたは隠れこだわりが強い人です！";
+          break;
+        case "さそり座":
+          resultText = "あなたはしつこい性格です！";
+          break;
+        case "いて座":
+          resultText = "あなたは飽き性です！";
+          break;
+        case "やぎ座":
+          resultText = "あなたは真面目ぶってますが、根は自由人です！";
+          break;
+        case "みずがめ座":
+          resultText = "あなたはかっこつけたがりです！";
+          break;
+        case "うお座":
+          resultText = "あなたは自分が思っている以上に寂しがりです！";
+          break;
+        default:
+          resultText = "星座を選んでください！";
+          break;
+      }
+
+      document.getElementById("result").innerText = resultText;
+    }
+  </script>
 
 </body>
 </html>
